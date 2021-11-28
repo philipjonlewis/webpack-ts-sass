@@ -1,12 +1,7 @@
 import "./sass/style.scss";
 
-import "./js/about";
-import "./js/contact";
+const btn = document.querySelector(".sample")!;
 
-console.log("hello");
-
-const btn = document.querySelector(".sample");
-
-btn?.addEventListener("click", () => {
+btn.addEventListener("click", () => {
   console.log("sample");
 });

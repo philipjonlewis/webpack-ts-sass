@@ -1,9 +1,42 @@
+@use "./base" as *;
+@use "./colors" as *;
+@use "./abstracts" as *;
+@use "./pages" as *;
+
 body {
-  color: red;
-  // background-color: yellow;
+  @include flexbox(column, flex-start, flex-start);
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: $white-4;
 }
 
 .chicken {
   width: 500px;
-  height: 1200px;
+  height: 600;
+}
+
+.nav-container {
+  @include flexbox(row, center, center);
+  @include border-direction(bottom, 1px, $white-3);
+
+  width: 100vw;
+  background-color: $white-5;
+
+  position: fixed;
+
+  .nav-link {
+    padding: 2rem 4rem;
+    margin: 0 1rem;
+    color: $black-4;
+    border-bottom: solid 3px transparent;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+
+    &:hover {
+      @include border-direction(bottom, 3px, $apple-blue);
+      color: $apple-blue;
+    }
+  }
 }

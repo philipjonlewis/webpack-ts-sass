@@ -4,8 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <title>Philip's Site | HomePage</title>
+
+    <script>
+      const pageTitle = window.location.href.split("/")[3];
+
+      if (pageTitle.toString() === "about.html") {
+        document.title = "Philip's Site | About Page";
+      }
+
+      if (pageTitle.toString() === "contact.html") {
+        document.title = "Philip's Site | Contacts Page";
+      }
+    </script>
   </head>
   <body>
-    <h1>this is a partial</h1>
-
+    <navbar class="nav-container">
+      <a class="nav-link" id="home" href="index.html">Home</a>
+      <a class="nav-link" id="about" href="about.html">About</a>
+      <a class="nav-link" id="contact" href="contact.html">Contact</a>
+    </navbar>
+  </body>
+</html>
