@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   entry: {
     main: "./src/index.ts",
+    vendor : "./src/vendors/vendor.ts"
   },
   module: {
     rules: [
@@ -25,7 +26,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: "bundle.js",
+    filename: "[name].[hash].bundle.js",
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "images/[name].[hash][ext][query]",
   },

@@ -7,23 +7,34 @@ const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 module.exports = merge(common, {
   mode: "development",
   output: {
-    filename: "[name].bundle.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: "index.html",
       template: "./src/views/index.ejs",
-      name: "philip",
+      name: "this is the home",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "about.html",
+      template: "./src/views/pages/about.ejs",
+      name: "this is the about",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "contact.html",
+      template: "./src/views/pages/contact.ejs",
+      name: "this is the contact",
     }),
     new HtmlWebpackPartialsPlugin({
       path: path.join(__dirname, "./src/views/partials/header.ejs"),
-      location: "header_template",
-      template_filename: ["index.html"],
+      location: "header",
+      template_filename: "*",
     }),
     new HtmlWebpackPartialsPlugin({
       path: path.join(__dirname, "./src/views/partials/footer.ejs"),
-      location: "footer_template",
-      template_filename: ["index.html"],
+      location: "footer",
+      template_filename: "*",
     }),
   ],
   module: {

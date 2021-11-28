@@ -1,17 +1,15 @@
-<% const {name} = htmlWebpackPlugin.options %>
-<header_template></header_template>
-<h1><%= name %></h1>
-<h2>Hello</h2>
-<h2>Hello</h2>
-<h2>Hello</h2>
-<h2>Hello</h2>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste officiis
-  voluptas facere quos ratione quasi eos tempore culpa, non eveniet!
-</p>
+<header></header>
 
-
-
+<h1>Home</h1>
 <button class="sample">Click Me</button>
+<a href="about.html">About Me</a>
+<a href="contact.html">Contact Me</a>
 
-<footer_template></footer_template>
+<br />
+<hr />
+<%= htmlWebpackPlugin.options.name %>
+<hr />
+<br />
+
+<img src=" <%= require("../assets/chicken.jpg") %> " alt="" class="chicken">
+<footer></footer>

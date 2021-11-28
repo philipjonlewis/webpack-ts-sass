@@ -19,7 +19,26 @@ module.exports = merge(common, {
       new CssMinimizerPlugin(),
       new TerserPlugin(),
       new HtmlWebpackPlugin({
+        filename: "index.html",
         template: "./src/views/index.ejs",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true,
+        },
+      }),
+      new HtmlWebpackPlugin({
+        filename: "about.html",
+        template: "./src/views/pages/about.ejs",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true,
+        },
+      }),
+      new HtmlWebpackPlugin({
+        filename: "contact.html",
+        template: "./src/views/pages/contact.ejs",
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,
@@ -33,13 +52,13 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new HtmlWebpackPartialsPlugin({
       path: path.join(__dirname, "./src/views/partials/header.ejs"),
-      location: "header_template",
-      template_filename: ["index.html"],
+      location: "header",
+      template_filename: "*",
     }),
     new HtmlWebpackPartialsPlugin({
       path: path.join(__dirname, "./src/views/partials/footer.ejs"),
-      location: "footer_template",
-      template_filename: ["index.html"],
+      location: "footer",
+      template_filename: "*",
     }),
   ],
   module: {

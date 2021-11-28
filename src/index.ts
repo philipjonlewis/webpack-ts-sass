@@ -1,11 +1,9 @@
 import "./sass/style.scss";
 
-console.log("hello");
+import "./js/about";
+import "./js/contact";
 
-type userSchema = {
-  name: string;
-  age: number;
-};
+console.log("hello");
 
 const btn = document.querySelector(".sample");
 
