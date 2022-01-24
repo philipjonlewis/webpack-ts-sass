@@ -3,6 +3,9 @@ const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+
+
 const { indexPage, aboutPage, contactPage } = require("./siteReferences");
 module.exports = merge(common, {
   mode: "development",
@@ -24,6 +27,9 @@ module.exports = merge(common, {
       location: "footer",
       template_filename: "*",
     }),
+    new CompressionPlugin({
+      algorithm: "gzip",
+    })
   ],
   module: {
     rules: [
