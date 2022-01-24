@@ -8,10 +8,12 @@ const TerserPlugin = require("terser-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+
 module.exports = merge(common, {
   mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js",
+    filename: "[name].[contenthash].bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
   optimization: {
@@ -45,10 +47,41 @@ module.exports = merge(common, {
           removeComments: true,
         },
       }),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            // Lossless optimization with custom option
+            // Feel free to experiment with options for better result for you
+            plugins: [
+              ["gifsicle", { interlaced: true }],
+              ["jpegtran", { progressive: true }],
+              ["optipng", { optimizationLevel: 5 }],
+              // Svgo configuration here https://github.com/svg/svgo#configuration
+              [
+                "svgo",
+                {
+                  name: 'preset-default',
+                  params: {
+                    overrides: {
+                      // customize plugin options
+                      convertShapeToPath: {
+                        convertArcs: true
+                      },
+                      // disable plugins
+                      convertPathData: false
+                    }
+                  }
+                }
+              ],
+            ],
+          },
+        },
+      }),
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPartialsPlugin({
       path: path.join(__dirname, "./src/views/partials/header.ejs"),
