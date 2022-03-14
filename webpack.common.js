@@ -3,6 +3,8 @@ const path = require("path");
 module.exports = {
   entry: {
     main: "./src/index.ts",
+    about: "./src/ts/about.ts",
+    contact: "./src/ts/contact.ts",
     vendor: "./src/vendors/vendor.ts",
   },
   module: {

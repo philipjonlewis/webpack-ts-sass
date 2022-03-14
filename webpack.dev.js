@@ -5,8 +5,8 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 
+const { indexPage, aboutPage, contactPage } = require("./siteReferences.ts");
 
-const { indexPage, aboutPage, contactPage } = require("./siteReferences");
 module.exports = merge(common, {
   mode: "development",
   output: {
@@ -29,7 +29,7 @@ module.exports = merge(common, {
     }),
     new CompressionPlugin({
       algorithm: "gzip",
-    })
+    }),
   ],
   module: {
     rules: [

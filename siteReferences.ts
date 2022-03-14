@@ -19,4 +19,4 @@ const contactPage = {
   siteName: "Philip's Website | Contact",
 };
 
-export { indexPage, aboutPage, contactPage };
+module.exports = { indexPage, aboutPage, contactPage };
