@@ -57,23 +57,6 @@ module.exports = merge(common, {
               ["gifsicle", { interlaced: true }],
               ["jpegtran", { progressive: true }],
               ["optipng", { optimizationLevel: 5 }],
-              // Svgo configuration here https://github.com/svg/svgo#configuration
-              [
-                "svgo",
-                {
-                  name: 'preset-default',
-                  params: {
-                    overrides: {
-                      // customize plugin options
-                      convertShapeToPath: {
-                        convertArcs: true
-                      },
-                      // disable plugins
-                      convertPathData: false
-                    }
-                  }
-                }
-              ],
             ],
           },
         },
@@ -102,6 +85,20 @@ module.exports = merge(common, {
           MiniCssExtractPlugin.loader, //3. Extract css into files
           "css-loader", //2. Turns css into commonjs
           "sass-loader", //1. Turns sass into css
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "file-loader",
+          },
+          {
+            loader: "svgo-loader",
+            options: {
+              configFile: "./scripts/svgo.config.js",
+            },
+          },
         ],
       },
     ],
