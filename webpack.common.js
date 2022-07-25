@@ -7,6 +7,7 @@ module.exports = {
     contact: "./src/ts/contact.ts",
     vendor: "./src/vendors/vendor.ts",
   },
+  devtool: "inline-source-map",
   module: {
     rules: [
       {

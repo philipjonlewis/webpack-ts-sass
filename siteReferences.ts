@@ -1,4 +1,4 @@
-const indexPage = {
+const homePage = {
   filename: "index.html",
   template: "./src/views/index.ejs",
   name: "this is the home",
@@ -19,4 +19,4 @@ const contactPage = {
   siteName: "Philip's Website | Contact",
 };
 
-module.exports = { indexPage, aboutPage, contactPage };
+module.exports = { homePage, aboutPage, contactPage };

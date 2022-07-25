@@ -8,3 +8,5 @@ btn.addEventListener("click", () => {
   trialFunction();
   console.log("sample");
 });
+
+console.log("sourcemaps working");

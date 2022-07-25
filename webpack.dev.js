@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 
-const { indexPage, aboutPage, contactPage } = require("./siteReferences.ts");
+const { homePage, aboutPage, contactPage } = require("./siteReferences.ts");
 
 module.exports = merge(common, {
   mode: "development",
@@ -14,7 +14,7 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, "dist"),
   },
   plugins: [
-    new HtmlWebpackPlugin(indexPage),
+    new HtmlWebpackPlugin(homePage),
     new HtmlWebpackPlugin(aboutPage),
     new HtmlWebpackPlugin(contactPage),
     new HtmlWebpackPartialsPlugin({
